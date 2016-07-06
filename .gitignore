@@ -1,0 +1,7 @@
+partytxt/.idea/
+partytxt/static/
+*.pyc
+partytxt/settings.py
+database.db-journal
+database.db
+tests/

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}groupsms Help{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>Instructions</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h3>Group Chat via SMS</h3>
+            <p>Only use groupsms to update people with common information. Don't use it for 1-on-1 conversations.<br>Msg&Data Rates May Apply(Carrier dependent).</p>
+            <h4>Features</h4>
+            <ul>
+                <li><b>SMS</b><p>A message sent to the number will be sent to every active group member.<br>
+                The message will have "- your name" at the end of the message, that way everyone knows who sent it.
+                </p></li>
+                <li><b>MMS</b><p>You can send pictures to the group. All pictures are stored in the groups private site<br>You are also able to upload images from the group site.<br>
+                Some carriers charge for MMS, or add it to your data. Its up to you to know how you will be charged.
+                </p></li>
+                <li><b>Voice Mail</b><p>You can leave voice messages to everyone in the group.<br> Each voice message is accessible on the group web page.<br>
+                To leave or listen to voice messages call the number and follow the directions.
+                </p></li>
+            </ul>
+            <h4>Commands</h4>
+            <ol>
+                <li><b>? or HELP</b><p>Get a list of commands and brief instructions.</p></li>
+                <li><b>JOIN</b>
+                    <p>
+                    Text JOIN firstname lastname to your group number. It will respond with a welcome message and a link to a vCard to save the group to your contacts.<br>
+                    The vCard contains the phone number group name and a private url.
+                    </p>
+                </li>
+                <li><b>LEAVE</b>
+                <p>Text LEAVE to the number to leave the group. You can rejoin by texting JOIN yourname</p>
+                </li>
+                <li><b>IGNORE</b>
+                <p>Text IGNORE to the number and you will no longer receive any messages. To start receiving messages again text WAKE</p>
+                </li>
+                <li><b>WAKE</b>
+                <p>Text Wake to your group number to start receiving messages again.</p>
+                </li>
+                <li><b>NAME</b>
+                Text NAME to the number to change your name. Ex: Jim brovaoskity change to Jib Bro. ( Takes up less room)
+                </li>
+            </ol>
+       </div>
+    </div>
+{% endblock %}

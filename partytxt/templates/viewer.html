@@ -1,0 +1,51 @@
+## TODO add links to only messages,images,and voice messages
+{% extends "base.html" %}
+
+{% block title %}Wow that just happened!{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">Group Shenanigans</h1>
+    <h4 class="text-center">Vegas 2015</h4>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h3 class="subheader">Messages</h3>
+            {% for message in sms %}
+            <dl>
+
+                <dt>{{ message.name }}</dt>
+                <dd style="padding-left:8px;"><blockquote>{{message.body}}</blockquote></dd>
+
+            </dl>
+ {% endfor %}
+
+        </div>
+        <div class="col-md-4">
+            <h3 class="subheader">Pictures</h3>
+
+                    <div class="fluidMedia"><iframe id="choosefile" frameborder="0"></iframe></div>
+                    <button type="button" class="btn btn-default" id="upload_image" name="submit">Add Image</button>
+            <br/>
+            <br/>
+
+
+                <center>
+                {% for image in imgs %}
+                    {% if "http" not in image or "https" not in image %}
+                        <img style="padding-bottom:4px;" src="{{ url_for('static', filename= 'images/'+image) }}"><br/>
+                    {% else %}
+                        <img style="padding-bottom:4px;" src="{{ image }}"><br/>
+                    {% endif %}
+                {% endfor %}
+                </center>
+        </div>
+        <div class="col-md-4">
+            <h3 class="subheader">Voice Messages</h3>
+                        <ol>
+                {% for message in vm %}
+                <li> From {{ message.name }} - {{message.vote_count}} Votes <audio controls><source src="{{ url_for('static',filename='voicemail/'+message.call_sid) }}.mp3" type="audio/mpeg"></audio> </li>
+                {% endfor %}
+            </ol>
+        </div>
+    </div>
+{% endblock %}
